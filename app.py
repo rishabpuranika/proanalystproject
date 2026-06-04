@@ -16,8 +16,11 @@ Usage:
     streamlit run app.py
 """
 
-import logging
 import os
+# Force pure-Python implementation for protobuf to bypass descriptor conflicts on Streamlit Cloud
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
+
+import logging
 import time
 
 import streamlit as st

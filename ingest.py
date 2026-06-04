@@ -14,8 +14,11 @@ It reads the PDF from data/upwork_api_reference.pdf and creates the
 vector database in the chroma_db/ directory.
 """
 
-import logging
 import os
+# Force pure-Python implementation for protobuf to bypass descriptor conflicts on Streamlit Cloud
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
+
+import logging
 import sys
 
 from dotenv import load_dotenv
